@@ -1,7 +1,7 @@
 # ServoROS
 micro servo position control with ROS and Arduino
 
-make sure you already installed neccessary packages. if you not, try this
+make sure you already installed neccessary packages. if you do not, try this
 
 ```bash
     $ sudo apt install rosserial-arduino
@@ -14,7 +14,27 @@ set /dev/ttyACM0 permission
     $ sudo chmod 666 /dev/ttyACM0
 ```
 
+connect your Arduino board and upload code. you can use servo_ros_publisher or servo_ros_subscriber for this issue. in first case you can upload servo_ros_subscriber after uploading code, you should be run a node from rosserial_python package. this node is serial_node.py . open a new terminal and execute this
 
+```bash
+    $ rosrun rosserial_python serial_node.py /dev/ttyACM0
+```
+
+by running the above command, your connection with arduino and ros has been set up.
+now, you can execute servo_pose_cmd node and send position command for your servo motor. open a new terminal and try this
+
+```bash
+    $ rosrun servo_control servo_pose_cmd
+```
+
+after doing this, you can see servo motor has moved.
+
+in other case you can upload another arduino code called servo_ros_publisher. simmilarlly, connect your board and upload code from arduino IDE. now you see servo has been moved. open another terminal and check rostopics.
+
+
+```bash
+    $ rostopic list
+```
 
 
 
