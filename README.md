@@ -1,4 +1,4 @@
-# ServoROS
+<!-- # ServoROS
 micro servo position control with ROS and Arduino
 
 make sure you already installed neccessary packages. if you do not, try this
@@ -34,47 +34,56 @@ in other case you can upload another arduino code called servo_ros_publisher. si
 
 ```bash
     $ rostopic list
-```
+``` -->
 
 
 
+# Servo Control Package for ROS and Arduino
 
+This package allows you to connect your servo motor to ROS and Arduino, and control its position using ROS commands. Follow the steps below to install and use the package:
 
-<!-- 
-Numeric Calculation of the Mandelbulb.
-For more info click here: [Mandelbulb](https://en.wikipedia.org/wiki/Mandelbulb)
+## Installation
 
-Time complexity of the existing Code is O(n^3)...
-So, to enhance the speed, the code was reimplemented in C++.  
-
-Code for the Data-Generation contains of:
-1. CPP
-2. MATLAB
-
-In all the codes, ***DIM*** variable indicates the resolution of the data.
-
-Running the MATLAB code is simple but the CPP code is a bit tricky.
-
-Compile the CPP code using the following command:
+Before using the package, make sure you have installed the necessary packages. If not, run the following commands:
 
 ```bash
-    $ g++ -std=c++11 -o MandelOut Mandel.cpp -lm
+$ sudo apt install rosserial-arduino
+$ sudo apt install rosserial-python
 ```
 
-#### To run the code there are 2 available Flags
+## Setting Permissions
 
-***-n:***
-    power for the **Z** in the main equation.
-***-d:***
-    the same **DIM** which is the resolution of the data.
-
-Example:
+Set /dev/ttyACM0 permission by running the following command:
 
 ```bash
-    $ ./MandelOut -n 8 -d 128
+$ sudo chmod 666 /dev/ttyACM0
 ```
 
-> ***Note:*** There is also a simpler implementation of the Mandelbulb in the cpp folder. Just set the vars and run the code. :)
+## Uploading Code
 
-![](images/basic.jpg)
-![](images/topview.jpg) -->
+Upload the code to your Arduino board. You can use either servo_ros_publisher or servo_ros_subscriber. For the first case, upload servo_ros_subscriber to your Arduino board, and then run a node from rosserial_python package. This node is called serial_node.py. Open a new terminal and execute the following command:
+
+```bash
+$ rosrun rosserial_python serial_node.py /dev/ttyACM0
+```
+
+By running the above command, your connection with Arduino and ROS has been set up. Now, you can execute servo_pose_cmd node and send position commands for your servo motor. Open a new terminal and try the following command:
+
+```bash
+$ rosrun servo_control servo_pose_cmd
+```
+
+After executing this command, you should see your servo motor move.
+
+Alternatively, you can upload another Arduino code called servo_ros_publisher. Similarly, connect your board and upload code from Arduino IDE. Now, check rostopics by running the following command:
+
+```bash
+$ rostopic list
+```
+
+## Conclusion
+
+With this package, you can easily control your servo motor using ROS commands. By following these simple steps, you can connect ROS and Arduino and control your servo motor's position.
+
+ServoREADME.txt
+Displaying ServoREADME.txt.
