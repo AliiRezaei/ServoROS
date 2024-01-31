@@ -84,6 +84,3 @@ $ rostopic list
 ## Conclusion
 
 With this package, you can easily control your servo motor using ROS commands. By following these simple steps, you can connect ROS and Arduino and control your servo motor's position.
-
-ServoREADME.txt
-Displaying ServoREADME.txt.
