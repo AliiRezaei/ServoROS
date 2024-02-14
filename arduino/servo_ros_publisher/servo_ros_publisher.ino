@@ -9,11 +9,13 @@ std_msgs::Int16 position;
 ros::Publisher PosePublisher("servo_pose", &position);
 
 int pos = 0;
+int servo_pin = 9;
+
 
 void setup() {
 
 
-  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  myservo.attach(servo_pin);  // attaches the servo on pin 9 to the servo object
   nh.initNode();
   nh.advertise(PosePublisher);
 
