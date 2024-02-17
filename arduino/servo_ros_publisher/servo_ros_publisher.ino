@@ -1,7 +1,9 @@
+// This is a simple publisher node for publishing micro servo position.
+// please upload this code to your arduino (uno) board.
+
 #include <ros.h>
 #include <std_msgs/Int16.h>
 #include <Servo.h>
-
 
 // global variables :
 ros::NodeHandle  nh;                                   // node handler
