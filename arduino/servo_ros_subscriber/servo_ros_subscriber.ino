@@ -3,23 +3,21 @@
 #include <Servo.h>
 
 
-ros::NodeHandle  nh;
+ros::NodeHandle nh;
 Servo myservo;
-int servo_pin = 9;
-
 std_msgs::Int16 position;
 
 void pose_callback(const std_msgs::Int16 &pos)
 {
-    myservo.write(pos.data);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
+    myservo.write(pos.data);
+    delay(15);
 
 }
 ros::Subscriber<std_msgs::Int16> PoseSubscriber("servo_pose", pose_callback);
 
 void setup() {
 
-  myservo.attach(servo_pin);  // attaches the servo on servo_pin to the servo object
+  myservo.attach(9);  // attaches the servo on servo_pin to the servo object
   nh.initNode();
   nh.subscribe(PoseSubscriber);
 
