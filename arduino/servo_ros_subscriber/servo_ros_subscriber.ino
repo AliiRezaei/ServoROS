@@ -1,31 +1,37 @@
+// This is a simple subscriber node for subscribing micro servo position.
+// please upload this code to your arduino (uno) board.
+
 #include <ros.h>
 #include <std_msgs/Int16.h>
 #include <Servo.h>
 
+ros::NodeHandle nh;   // node handler
+Servo micro_servo;    // micro servo object
+int servo_pin = 9;    // data attached pin
 
-ros::NodeHandle nh;
-Servo myservo;
-std_msgs::Int16 position;
-
+// pose subscriber caalback :
 void pose_callback(const std_msgs::Int16 &pos)
 {
-    myservo.write(pos.data);
-    delay(15);
-
+    micro_servo.write(pos.data); // write subscribed position
+    delay(15);                   // get some delay
 }
+
+// position subscriber :
 ros::Subscriber<std_msgs::Int16> PoseSubscriber("servo_pose", pose_callback);
 
-void setup() {
+void setup()
+{
 
-  myservo.attach(9);  // attaches the servo on servo_pin to the servo object
-  nh.initNode();
-  nh.subscribe(PoseSubscriber);
+  micro_servo.attach(servo_pin);   // configue micro servo object
+  nh.initNode();                   // initialize node handler
+  nh.subscribe(PoseSubscriber);    // subscribe possition subscriber
 
 }
 
 
-void loop() {
+void loop()
+{
 
-  nh.spinOnce();
+  nh.spinOnce(); // ros spin
 
 }
