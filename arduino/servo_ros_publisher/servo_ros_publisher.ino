@@ -7,7 +7,7 @@
 
 // global variables :
 ros::NodeHandle  nh;                                   // node handler
-Servo micro_servo;                                     // micro servo onject
+Servo micro_servo;                                     // micro servo object
 
 std_msgs::Int16 position;                              // publisher var
 ros::Publisher PosePublisher("servo_pose", &position); // position publisher
@@ -19,7 +19,7 @@ int servo_pin = 9;                                     // data attached pin
 void setup() 
 {
 
-  micro_servo.attach(servo_pin);  // configue micro servo object
+  micro_servo.attach(servo_pin);  // config micro servo object
   nh.initNode();                  // initialize node handler
   nh.advertise(PosePublisher);    // advertise position publisher
 
@@ -37,7 +37,7 @@ void loop()
     // write current position :
     micro_servo.write(pos);
     
-    // assigning loop var to the publishher var :
+    // assigning loop var to the publisher var :
     position.data = pos;
     
     // publish current position :
@@ -58,7 +58,7 @@ void loop()
     // write current position :
     micro_servo.write(pos);
 
-    // assigning loop var to the publishher var :
+    // assigning loop var to the publisher var :
     position.data = pos;
 
     // publish current position :
