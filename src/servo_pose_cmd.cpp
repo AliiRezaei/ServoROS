@@ -1,4 +1,4 @@
-// This Node is a simple position publisher used in servo_control package.
+// This node is a simple position publisher used in servo_control package.
 
 #include "ros/ros.h"
 #include "std_msgs/Int16.h"
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 			// publish current position :
 			PosePublisher.publish(position);
 
-			// display servo angle in terminal :
+			// display servo angle in terminal env :
 			ROS_INFO("Servo Position is : %d degrees", position.data);
 
 			// get some delay :
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 			// publish current position :
             PosePublisher.publish(position);
 
-			// display servo angle in terminal :
+			// display servo angle in terminal env :
 			ROS_INFO("Servo Position is : %d degrees", position.data);
             
 			// get some delay :
