@@ -13,7 +13,7 @@ $ sudo apt install rosserial-python
 
 ## Setting Permissions
 
-In this part, you must change your serial-port permission and activate read and write permissions for this purpose open a new terminal and write the following command:
+In this section, you need to change your serial-port permission and activate read and write permissions. To do this, open a new terminal and enter the following command :
 
 ```bash
 $ sudo chmod 666 /dev/ttyACM0
@@ -41,13 +41,13 @@ Alternatively, you can upload another Arduino code called servo_ros_publisher. S
 $ rostopic list
 ```
 
-Now, you can echo servo_pose topic for visualize transformated data in this topic by this command :
+You can visualize transformed data in the servo_pose topic by echoing it in the terminal with the following command :
 
 ```bash
 $ rostopic echo /servo_pose
 ```
 
-as you can see, the servo position printed in terminal environment.
+You will see the servo position printed in the terminal environment.
 
 ## Conclusion
 
