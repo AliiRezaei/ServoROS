@@ -22,7 +22,7 @@ ros::Subscriber<std_msgs::Int16> PoseSubscriber("servo_pose", pose_callback);
 void setup()
 {
 
-  micro_servo.attach(servo_pin);   // configue micro servo object
+  micro_servo.attach(servo_pin);   // config micro servo object
   nh.initNode();                   // initialize node handler
   nh.subscribe(PoseSubscriber);    // subscribe possition subscriber
 
